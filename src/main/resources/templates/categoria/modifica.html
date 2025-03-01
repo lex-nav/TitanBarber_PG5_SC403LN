@@ -8,12 +8,10 @@
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
 
-        <h2>Listado de Categorias</h2>
-        
-        <section th:replace="~{categoria/fragmentos :: botonesAgregar}"/>
-        <section th:replace="~{categoria/fragmentos :: agregarCategoria}"/>
-        <section th:replace="~{categoria/fragmentos :: listadoCategorias}"/>
-        
+
+        <section th:replace="~{categoria/fragmentos :: editarCategoria}"/>
+
+
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>

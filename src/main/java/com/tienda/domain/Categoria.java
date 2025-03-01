@@ -1,36 +1,54 @@
-
 package com.tienda.domain;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import java.io.Serializable;
-
+import jakarta.persistence.*;
 
 @Data
 @Entity
-@Table(Name="Categoria")
-public class Categoria implements Serializable{
-    
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id_categoria")
+@Table(name = "Categoria")
+public class Categoria implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_categoria")
     private long idCategoria;
     
-    
-    private String Descripcion;
-    
-    @Column(name="ruta_imagen")
-    private Srting RutaImagen;
-    
-    
-    private Boolean Activo
-            
-public Categoria(){
+    public Long getidCategoria(){
+        return idCategoria;
+    }
 
-}
+    private String descripcion;
 
-public Categoria(String descripcion, boolean activo){
-    this.descripcion = descripcion;
-    this.activo = activo;
-}
+    @Column(name = "ruta_imagen")
+    private String rutaImagen;
+
+    private Boolean activo;
+
+    public Categoria() {
+
+    }
+    
+    
+    
+
+    public Categoria(String descripcion, boolean activo) {
+        this.descripcion = descripcion;
+        this.activo = activo;
+    }
+
+    public boolean isActivo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Long getIdCategoria() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setRutaImagen(String cargaImagen) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }
