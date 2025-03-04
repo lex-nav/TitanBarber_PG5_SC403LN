@@ -16,9 +16,7 @@ public class Categoria implements Serializable {
     @Column(name = "id_categoria")
     private long idCategoria;
     
-    public Long getidCategoria(){
-        return idCategoria;
-    }
+    
 
     private String descripcion;
 
@@ -31,7 +29,9 @@ public class Categoria implements Serializable {
 
     }
     
-    
+    public Long getidCategoria(){
+        return idCategoria;
+    }
     
 
     public Categoria(String descripcion, boolean activo) {
