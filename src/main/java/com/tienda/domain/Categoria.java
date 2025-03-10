@@ -22,7 +22,7 @@ public class Categoria implements Serializable {
     @Column(name = "ruta_imagen")
     private String rutaImagen;
 
-    private Boolean activo;
+    private boolean activo;
 
     @OneToMany
     @JoinColumn(name = "id_categoria", updatable = false)
@@ -41,16 +41,6 @@ public class Categoria implements Serializable {
         this.activo = activo;
     }
 
-//    public boolean isActivo() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//
-//    public Long getIdCategoria() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//
-//    public void setRutaImagen(String cargaImagen) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+
 
 }
