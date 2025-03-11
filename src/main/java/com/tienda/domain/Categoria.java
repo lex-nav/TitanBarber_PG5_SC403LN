@@ -32,9 +32,6 @@ public class Categoria implements Serializable {
 
     }
 
-//    public Long getidCategoria() {
-//        return idCategoria;
-//    }
 
     public Categoria(String descripcion, boolean activo) {
         this.descripcion = descripcion;
