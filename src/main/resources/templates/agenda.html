@@ -1,15 +1,56 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita - Titan</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+    <div th:replace="~{layouts/header :: header}"></div>
+
+    <main class="container mt-5">
+        <h2 class="text-center">Agendar Cita</h2>
+
+        <form th:action="@{/agenda}" th:object="${cita}" method="post">
+            <div class="mb-3">
+                <label for="cliente" class="form-label">Cliente</label>
+                <select id="cliente" th:field="*{cliente}" class="form-control">
+                    <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nombre}"></option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="barbero" class="form-label">Barbero</label>
+                <select id="barbero" th:field="*{barbero}" class="form-control">
+                    <option th:each="b : ${barberos}" th:value="${b.id}" th:text="${b.nombre}"></option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="servicio" class="form-label">Servicio</label>
+                <select id="servicio" th:field="*{servicio}" class="form-control">
+                    <option th:each="s : ${servicios}" th:value="${s.id}" th:text="${s.nombre}"></option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="date" id="fecha" th:field="*{fecha}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="hora" class="form-label">Hora</label>
+                <input type="time" id="hora" th:field="*{hora}" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Agendar Cita</button>
+        </form>
+    </main>
+
+    <div th:replace="~{layouts/footer :: footer}"></div>
+
+</body>
 </html>
