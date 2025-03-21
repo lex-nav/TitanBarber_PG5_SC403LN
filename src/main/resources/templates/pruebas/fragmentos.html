@@ -60,7 +60,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+<!--                    <div class="col-md-3">-->
+                        <div class="col-lg-3 col-md-6">
                         <div class="card text-center bg-success text-white mb-3">
                             <div class="card-body">
                                 <h3>[[#{producto.total}]]</h3>
@@ -76,7 +77,8 @@
         <section th:fragment="filtros" class="bg-light">
             <div class="row py-2">
                 <div class="col-md-1"></div>
-                <div class="col-md-3">
+                <!--<div class="col-md-3">-->
+                <div class="col-lg-3 col-md-6">
                     <form method="POST" th:action="@{/pruebas/query1}" 
                           class="was-validated">
                         <div class="card">                            
@@ -102,7 +104,8 @@
                         </div>
                     </form>
                 </div>  
-                <div class="col-md-3">
+                <!--<div class="col-md-3">-->
+                <div class="col-lg-3 col-md-6">
                     <form method="POST" th:action="@{/pruebas/query2}" 
                           class="was-validated">
                         <div class="card">                            
@@ -128,7 +131,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-3">
+                <!--<div class="col-md-3">-->
+                <div class="col-lg-3 col-md-6">
                     <form method="POST" th:action="@{/pruebas/query3}" 
                           class="was-validated">
                         <div class="card success">
@@ -154,6 +158,34 @@
                         </div>
                     </form>
                 </div>
+                <!--<div class="col-md-3">-->
+                <div class="col-lg-3 col-md-6">
+                    <form method="GET" th:action="@{/producto/reporte-existencias}" class="was-validated">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-center">[[#{producto.filtro.existencias}]]</h5>
+                                <div class="mb-3">
+                                    <label for="min">[[#{producto.existencias.min}]]</label>
+                                    <input type="number" class="form-control text-center"
+                                           th:value="${min}"
+                                           th:name="min" required="true" min="0"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="max">[[#{producto.existencias.max}]]</label>
+                                    <input type="number" class="form-control text-center"
+                                           th:value="${max}"
+                                           th:name="max" required="true" min="0"/>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-warning">
+                                    <i class="fas fa-search"></i> [[#{producto.reporte.existencias}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
 
             </div>
         </section> 

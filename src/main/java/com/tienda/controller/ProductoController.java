@@ -65,4 +65,15 @@ public class ProductoController {
         model.addAttribute("categorias", categorias);
         return "/producto/modifica";
     }
+    
+  @GetMapping("/reporte-existencias")
+    public String reporteExistencias(@RequestParam(defaultValue = "1") int min,
+                                 @RequestParam(defaultValue = "10") int max,
+                                 Model model) {
+        var productos = productoService.buscarPorRangoExistencias(min, max);
+        model.addAttribute("productos", productos);
+        model.addAttribute("min", min);
+        model.addAttribute("max", max);
+        return "pruebas/listado2";
+}
 }

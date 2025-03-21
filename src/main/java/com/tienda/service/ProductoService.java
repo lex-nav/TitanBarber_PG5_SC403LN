@@ -26,4 +26,7 @@ public interface ProductoService {
     
      //Lista de productos utilizando consultas con SQL Nativo
     public List<Producto> metodoNativo(double precioInf, double precioSup);
+    
+    //Consulta de productos por existencia Practica4
+    public List<Producto> buscarPorRangoExistencias(int existenciasMin, int existenciasMax);
 }
