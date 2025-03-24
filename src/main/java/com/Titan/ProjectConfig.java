@@ -38,7 +38,7 @@ public class ProjectConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance(); // solo para pruebas
+        return NoOpPasswordEncoder.getInstance();
     }
 
     @Bean

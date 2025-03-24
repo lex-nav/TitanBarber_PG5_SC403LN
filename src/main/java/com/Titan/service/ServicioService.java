@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface ServicioService {
     List<Servicio> listarServicios();
-    void guardarServicio(Servicio servicio); // ✅ Agregamos este método
+    void guardarServicio(Servicio servicio);
 }
