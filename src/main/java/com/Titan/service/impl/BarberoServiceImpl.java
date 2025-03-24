@@ -17,4 +17,9 @@ public class BarberoServiceImpl implements BarberoService {
     public List<Barbero> listarBarberos() {
         return barberoDao.findAll();
     }
+
+    @Override
+    public void guardarBarbero(Barbero barbero) {
+        barberoDao.save(barbero);
+    }
 }

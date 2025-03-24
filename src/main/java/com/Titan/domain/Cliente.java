@@ -15,6 +15,7 @@ public class Cliente {
     private String correo;
     private String telefono;
     private String contraseña;
+    private String rol;
 
     
     public Cliente() {}
@@ -28,21 +29,54 @@ public class Cliente {
     }
 
     
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    public Integer getId() { 
+        return id; 
+    }
+    public void setId(Integer id) { 
+        this.id = id; 
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getNombre() { 
+        return nombre; 
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre; 
+    }
 
-    public String getApellido() { return apellido; }
-    public void setApellido(String apellido) { this.apellido = apellido; }
+    public String getApellido() { 
+        return apellido; 
+    }
+    public void setApellido(String apellido) { 
+        this.apellido = apellido; 
+    }
 
-    public String getCorreo() { return correo; }
-    public void setCorreo(String correo) { this.correo = correo; }
+    public String getCorreo() { 
+        return correo; 
+    }
+    public void setCorreo(String correo) { 
+        this.correo = correo; 
+    }
 
-    public String getTelefono() { return telefono; }
-    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public String getTelefono() { 
+        return telefono; 
+    }
+    public void setTelefono(String telefono) { 
+        this.telefono = telefono; 
+    }
 
-    public String getContraseña() { return contraseña; }
-    public void setContraseña(String contraseña) { this.contraseña = contraseña; }
+    public String getContraseña() { 
+        return contraseña; 
+    }
+    public void setContraseña(String contraseña) { 
+        this.contraseña = contraseña; 
+    }
+    
+    public String getRol() {
+    return rol;
+    }
+    public void setRol(String rol) {
+    this.rol = rol;
+    }
+
+
 }

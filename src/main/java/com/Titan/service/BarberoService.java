@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface BarberoService {
     List<Barbero> listarBarberos();
+    void guardarBarbero(Barbero barbero);
 }

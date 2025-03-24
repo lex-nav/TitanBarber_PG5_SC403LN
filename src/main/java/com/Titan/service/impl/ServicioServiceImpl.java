@@ -17,4 +17,9 @@ public class ServicioServiceImpl implements ServicioService {
     public List<Servicio> listarServicios() {
         return servicioDao.findAll();
     }
+
+    @Override
+    public void guardarServicio(Servicio servicio) {
+        servicioDao.save(servicio);
+    }
 }
