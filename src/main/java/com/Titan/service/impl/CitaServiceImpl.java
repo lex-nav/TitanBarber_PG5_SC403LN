@@ -6,6 +6,8 @@ import com.Titan.service.CitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import com.Titan.domain.Cliente;
+
 
 @Service
 public class CitaServiceImpl implements CitaService {
@@ -19,7 +21,21 @@ public class CitaServiceImpl implements CitaService {
     }
 
     @Override
-    public List<Cita> listarCitasPorCliente(Integer clienteId) {
-        return citaDao.findByClienteId(clienteId);
+    public List<Cita> buscarCitasPorCliente(Cliente cliente) {
+        return citaDao.findByCliente(cliente);
     }
+
+    @Override
+    public void cancelarCita(Integer citaId) {
+        citaDao.deleteById(citaId);
+    }
+
+
+    @Override
+    public Cita obtenerCitaPorId(Integer citaId) {
+        return citaDao.findById(citaId).orElse(null);
+    }
+
+
+
 }

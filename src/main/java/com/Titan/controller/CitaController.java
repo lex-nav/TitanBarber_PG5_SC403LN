@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
+
 
 
 import java.util.List;
@@ -47,5 +50,29 @@ public class CitaController {
         citaService.agendarCita(cita);
         redirectAttributes.addFlashAttribute("mensaje", "¡Cita agendada con éxito!");
         return "redirect:/agenda";
-}
+    }
+    
+    @GetMapping("/mis-citas")
+    public String listarMisCitas(@AuthenticationPrincipal User user, Model model) {
+        Cliente cliente = clienteService.obtenerClientePorCorreo(user.getUsername());
+        List<Cita> citas = citaService.buscarCitasPorCliente(cliente);
+        model.addAttribute("citas", citas);
+        return "misCitas";
+    }
+    
+    @GetMapping("/cancelar/{id}")
+    public String cancelarCita(@PathVariable("id") Integer id, @AuthenticationPrincipal User user, RedirectAttributes redirectAttributes) {
+        Cliente cliente = clienteService.obtenerClientePorCorreo(user.getUsername());
+        Cita cita = citaService.obtenerCitaPorId(id);
+
+        if (cita != null && cita.getCliente().getId().equals(cliente.getId())) {
+            citaService.cancelarCita(id);
+            redirectAttributes.addFlashAttribute("mensaje", "Cita cancelada correctamente.");
+        } else {
+            redirectAttributes.addFlashAttribute("mensaje", "No tienes permiso para cancelar esta cita.");
+        }
+
+        return "redirect:/agenda/mis-citas"; 
+    }
+
 }

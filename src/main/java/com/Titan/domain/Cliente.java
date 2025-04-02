@@ -15,17 +15,18 @@ public class Cliente {
     private String correo;
     private String telefono;
     private String contraseña;
-    private String rol;
+    private String rol = "cliente";
 
     
     public Cliente() {}
 
-    public Cliente(String nombre, String apellido, String correo, String telefono, String contraseña) {
+    public Cliente(String nombre, String apellido, String correo, String telefono, String contraseña, String rol) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.telefono = telefono;
         this.contraseña = contraseña;
+        this.rol = "cliente";
     }
 
     

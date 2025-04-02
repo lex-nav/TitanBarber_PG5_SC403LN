@@ -27,4 +27,23 @@ public class ClienteServiceImpl implements ClienteService {
     public List<Cliente> listarClientes() {
         return clienteDao.findAll();
     }
+    
+   @Override
+    public Cliente obtenerCliente(Integer id) {
+        return clienteDao.findById(id.longValue()).orElse(null);
+    }
+
+    @Override
+    public void actualizarCliente(Cliente cliente) {
+        clienteDao.save(cliente); 
+    }
+    
+    @Override
+    public Cliente obtenerClientePorCorreo(String correo) {
+        return clienteDao.findByCorreo(correo);
+    }
+
+  
+
+
 }

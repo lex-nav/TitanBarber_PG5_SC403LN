@@ -18,23 +18,23 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class ProjectConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/index", "/registro/**", "/css/**", "/img/**", "/js/**").permitAll()
-                .requestMatchers("/barbero/**", "/servicio/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                .loginPage("/login")
-                .defaultSuccessUrl("/", true)
-                .permitAll()
-            )
-            
-            .logout(logout -> logout.permitAll());
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/", "/index", "/registro/**", "/css/**", "/img/**", "/js/**").permitAll()
+            .requestMatchers("/barbero/**", "/servicio/**", "/usuarios/**").hasRole("ADMIN") 
+            .anyRequest().authenticated()
+        )
+        .formLogin(form -> form
+            .loginPage("/login")
+            .defaultSuccessUrl("/", true)
+            .permitAll()
+        )
+        .logout(logout -> logout.permitAll());
 
-        return http.build();
-    }
+    return http.build();
+}
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
