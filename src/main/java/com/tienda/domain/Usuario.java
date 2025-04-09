@@ -11,6 +11,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
+import jakarta.persistence.FetchType;
+
 
 @Entity
 @Data
@@ -32,7 +34,9 @@ public class Usuario implements Serializable {
     private String rutaImagen;
     private boolean activo;
     
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name="id_usuario")
     private List<Rol> roles;
+
+
 }

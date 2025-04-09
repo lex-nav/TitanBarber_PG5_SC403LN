@@ -23,5 +23,11 @@ public interface ProductoDao extends JpaRepository <Producto, Long> {
     @Query("SELECT p FROM Producto p WHERE p.existencias BETWEEN :existenciasMin AND :existenciasMax ORDER BY p.existencias DESC")
     public List<Producto> buscarPorRangoExistencias(@Param("existenciasMin") int existenciasMin, @Param("existenciasMax") int existenciasMax);
 
+//    public interface ProductoDao extends CrudRepository<Producto, Long> {
+//        List<Producto> findByCategoriaIdCategoria(Long idCategoria);
+//    }
 
+    List<Producto> findByCategoriaIdCategoria(Long idCategoria);
+
+    
 }

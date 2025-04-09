@@ -45,7 +45,7 @@ public class ProductoController {
                     firebaseStorageService.cargaImagen(
                             imagenFile,
                             "producto",
-                            producto.getidProducto()));
+                            producto.getIdProducto()));
         }
         productoService.save(producto);
         return "redirect:/producto/listado";

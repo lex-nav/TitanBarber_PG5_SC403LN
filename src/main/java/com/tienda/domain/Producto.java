@@ -20,25 +20,20 @@ public class Producto implements Serializable {
     private String detalle;
     private double precio;
     private int existencias;
-    @Column(name 
-    = "ruta_imagen")
+
+    @Column(name = "ruta_imagen")
     private String rutaImagen;
-    private Boolean activo;
-    
-    @ManyToOne​
-    @JoinColumn(name="id_categoria")
-    Categoria categoria;
 
-    
+    private boolean activo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+
     public Producto() {
-
     }
 
-    public Long getidProducto() {
-        return idProducto;
-    }
-
-      public Producto(String descripcion, String detalle, double precio, int existencias, String imagen, boolean activo) {
+    public Producto(String descripcion, String detalle, double precio, int existencias, String imagen, boolean activo) {
         this.descripcion = descripcion;
         this.detalle = detalle;
         this.precio = precio;
@@ -46,21 +41,4 @@ public class Producto implements Serializable {
         this.rutaImagen = imagen;
         this.activo = activo;
     }
-
-
-    //////// Revisar con el profe
-    ///
-    ///
-    public boolean isActivo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Long getIdProducto() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setRutaImagen(String cargaImagen) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }

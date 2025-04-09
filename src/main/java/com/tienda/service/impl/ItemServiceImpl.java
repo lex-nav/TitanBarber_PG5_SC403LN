@@ -143,7 +143,7 @@ public class ItemServiceImpl implements ItemService {
         }
 
         //Se debe registrar la factura incluyendo el usuario
-        Factura factura = new Factura(usuario.getIdUsuario());
+        Factura factura = new Factura(usuario); 
         factura = facturaDao.save(factura);
 
         //Se debe registrar las ventas de cada producto -actualizando existencias-
