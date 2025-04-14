@@ -10,4 +10,5 @@ import com.Titan.domain.Cliente;
 public interface CitaDao extends JpaRepository<Cita, Integer> {
     List<Cita> findByClienteId(Integer clienteId);
     List<Cita> findByCliente(Cliente cliente);
+    List<Cita> findByBarberoId(Integer barberoId);
 }

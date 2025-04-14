@@ -22,8 +22,26 @@ public class PerfilController {
         return "perfil";
     }
 
-    @PostMapping
-    public String actualizarPerfil(@ModelAttribute Cliente cliente, Authentication auth) {
+//    @PostMapping
+//    public String actualizarPerfil(@ModelAttribute Cliente cliente, Authentication auth) {
+//        Cliente actual = clienteService.obtenerClientePorCorreo(auth.getName());
+//        actual.setNombre(cliente.getNombre());
+//        actual.setApellido(cliente.getApellido());
+//        actual.setTelefono(cliente.getTelefono());
+//        actual.setContraseña(cliente.getContraseña());
+//        clienteService.actualizarCliente(actual);
+//        return "redirect:/perfil?exito";
+    
+    //    }
+    @GetMapping("/editar")
+    public String mostrarFormularioEdicion(Model model, Authentication auth) {
+        Cliente cliente = clienteService.obtenerClientePorCorreo(auth.getName());
+        model.addAttribute("cliente", cliente);
+        return "editarPerfil";
+    }
+
+    @PostMapping("/editar")
+    public String actualizarPerfilDesdeVista(@ModelAttribute Cliente cliente, Authentication auth) {
         Cliente actual = clienteService.obtenerClientePorCorreo(auth.getName());
         actual.setNombre(cliente.getNombre());
         actual.setApellido(cliente.getApellido());
@@ -32,4 +50,6 @@ public class PerfilController {
         clienteService.actualizarCliente(actual);
         return "redirect:/perfil?exito";
     }
+
+
 }

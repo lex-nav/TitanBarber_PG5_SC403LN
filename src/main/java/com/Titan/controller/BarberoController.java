@@ -28,6 +28,32 @@ public class BarberoController {
         return "redirect:/barbero/lista";
     }
     
+    @GetMapping("/editar/{id}")
+    public String editarBarbero(@PathVariable("id") Integer id, Model model) {
+        Barbero barbero = barberoService.obtenerBarberoPorId(id);
+        model.addAttribute("barbero", barbero);
+        return "editarBarbero";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizarBarbero(@ModelAttribute Barbero barbero, RedirectAttributes redirectAttributes) {
+        barberoService.guardarBarbero(barbero);
+        redirectAttributes.addFlashAttribute("mensaje", "Barbero actualizado correctamente.");
+        return "redirect:/barbero/lista";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminarBarbero(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+        if (barberoService.tieneCitasAsignadas(id)) {
+            redirectAttributes.addFlashAttribute("mensaje", "No se puede eliminar el barbero porque tiene citas asignadas.");
+        } else {
+            barberoService.eliminarBarbero(id);
+            redirectAttributes.addFlashAttribute("mensaje", "Barbero eliminado correctamente.");
+        }
+        return "redirect:/barbero/lista";
+}
+
+
     @GetMapping("/lista")
     public String listarBarberos(Model model) {
         model.addAttribute("barberos", barberoService.listarBarberos());
