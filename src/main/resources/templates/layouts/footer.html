@@ -1,10 +1,6 @@
-<!--<footer th:fragment="footer" class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2025 TitanBarber. Todos los derechos reservados.</p>
-</footer>-->
-
 <footer th:fragment="footer" class="bg-dark text-white text-center py-4">
     <div class="container">
-        <p class="mb-1">&copy; 2025 TitanBarber. Todos los derechos reservados.</p>
+        <p class="mb-1">&copy; 2025 <span th:text="#{titulo.logo}">TitanBarber</span>. <span th:text="#{plantilla.derechos}">Todos los derechos reservados.</span></p>
         <div>
             <a href="#" class="text-white mx-2"><i class="bi bi-facebook"></i></a>
             <a href="#" class="text-white mx-2"><i class="bi bi-instagram"></i></a>
@@ -12,4 +8,3 @@
         </div>
     </div>
 </footer>
-

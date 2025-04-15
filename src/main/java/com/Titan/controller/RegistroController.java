@@ -23,9 +23,9 @@ public class RegistroController {
 
    @PostMapping("/registro")
     public String registrarCliente(@ModelAttribute Cliente cliente) {
-        cliente.setRol("CLIENTE"); // ✅ Forzamos el rol antes de guardar
+        cliente.setRol("CLIENTE"); 
         clienteService.guardarCliente(cliente);
-            return "redirect:/login"; // Redirige al login después de registrarse
-    }
+            return "redirect:/login"; 
 
+    }
 }

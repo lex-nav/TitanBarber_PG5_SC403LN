@@ -1,38 +1,4 @@
-<!--<!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Inicio - TitanBarber</title>
-                <link rel="stylesheet" th:href="@{/css/styles.css}">
-                    <link rel="stylesheet" 
-                          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-                        </head>
-                        <body>
-
-                            
-                            <div th:replace="~{layouts/header :: header}"></div>
-
-                            <main class="container text-center mt-5">
-                                <h1>Bienvenido a TitanBarber</h1>
-                                <p class="lead">El mejor lugar para tu estilo y cuidado personal.</p>
-                                <img src="/img/barberia.jpg" alt="TitanBarber" class="img-fluid rounded">
-
-                                    <div class="mt-4">
-                                        <a th:href="@{/agenda}" class="btn btn-primary">Agendar Cita</a>
-                                         <a th:href="@{/barbero/barberos}" class="btn btn-secondary">Ver Barberos</a>
-                                         <a th:href="@{/servicio/servicios}" class="btn btn-secondary">Ver Servicios</a>
-                                    </div>
-                            </main>
-
-                           
-                            <div th:replace="~{layouts/footer :: footer}"></div>
-
-                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-                        </body>
-                        </html>
--->
+<!--
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
@@ -74,7 +40,7 @@
 
     <div th:replace="~{layouts/header :: header}"></div>
 
-    <!-- Hero Section -->
+     Hero Section 
     <section class="hero">
         <div class="text-center">
             <h1>Bienvenido a TitanBarber</h1>
@@ -83,7 +49,7 @@
         </div>
     </section>
 
-    <!-- Información -->
+     Información 
     <section class="seccion-info container text-center">
         <h2 class="mb-4">Nuestros Servicios</h2>
         <p class="mb-4">Ofrecemos cortes modernos, afeitados clásicos y un ambiente inigualable.</p>
@@ -97,6 +63,70 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{titulo.index}">Inicio - TitanBarber</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .hero {
+            background-image: url('/img/barberia_portada.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+        }
+
+        .btn-custom {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+        }
+
+        .seccion-info {
+            padding: 60px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div th:replace="~{layouts/header :: header}"></div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="text-center">
+        <h1 th:text="#{bienvenida}">Bienvenido a TitanBarber</h1>
+        <p class="lead" th:text="#{descripcion}">Donde el estilo y la precisión se encuentran</p>
+        <a th:href="@{/agenda}" class="btn btn-light btn-custom mt-3" th:text="#{agendar.btn}">Agendar Cita</a>
+    </div>
+</section>
+
+<!-- Información -->
+<section class="seccion-info container text-center">
+    <h2 class="mb-4" th:text="#{index.servicios.titulo}">Nuestros Servicios</h2>
+    <p class="mb-4" th:text="#{index.servicios.descripcion}">Ofrecemos cortes modernos, afeitados clásicos y un ambiente inigualable.</p>
+    <div class="d-flex justify-content-center gap-4">
+        <a th:href="@{/barbero/lista}" class="btn btn-outline-dark btn-custom" th:text="#{menu.barberos}">Conocer Barberos</a>
+        <a th:href="@{/servicio/servicios}" class="btn btn-outline-primary btn-custom" th:text="#{menu.servicios}">Ver Servicios</a>
+    </div>
+</section>
+
+<div th:replace="~{layouts/footer :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
-
-
